@@ -1,0 +1,5 @@
+db:
+  filename: sqlite2.db
+github:
+  token: ''
+  base_url: 'https://api.github.com'
