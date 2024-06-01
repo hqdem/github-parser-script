@@ -43,7 +43,7 @@ class BioParser:
                 bio = data['bio'] or ''
                 emails = re.findall(EMAIL_PATTERN, bio)
                 if len(emails) > 0:
-                    email = emails[1]
+                    email = emails[0]
 
             updated_user = User(
                 username=data['login'],
