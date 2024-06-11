@@ -32,3 +32,13 @@ class GithubAPI:
         path = f'users/{username}'
         res = self._make_request(path, 'GET')
         return res
+
+    def get_repo_contribs(self, username, repo_name):
+        path = f'repos/{username}/{repo_name}/contributors'
+        page = 1
+        res = self._make_request(path, 'GET', query={"page": page})
+        while len(res) != 0:
+            for user in res:
+                yield user
+            page += 1
+            res = self._make_request(path, 'GET', query={"page": page})
